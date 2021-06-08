@@ -60,5 +60,5 @@ npm install
 npm serve 
 ```
 <p>
-<b align="center" > This incomplete project is only a start, and we can develop in the future </b> </p>
+<b align="center" > Notice this is  incomplete project , we can add new features soon</b> </p>
  
