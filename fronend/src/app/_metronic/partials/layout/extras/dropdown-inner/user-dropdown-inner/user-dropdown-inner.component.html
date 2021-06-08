@@ -1,0 +1,25 @@
+<ng-container *ngIf="user$ | async as _user">
+  <ng-container *ngIf="extrasUserDropdownStyle === 'light'">
+    <!--begin::Header-->
+    <div class="d-flex align-items-center p-8 rounded-top">
+      <!--begin::Symbol-->
+      <div class="symbol symbol-md bg-light-primary mr-3 flex-shrink-0">
+        <img src="./assets/media/users/300_21.jpg" alt="" />
+      </div>
+      <!--end::Symbol-->
+
+     
+    <!--begin::Footer-->
+    <div class="navi-separator mt-3"></div>
+    <div class="navi-footer px-8 py-5">
+      <a
+        class="btn btn-light-primary font-weight-bold cursor-pointer"
+        (click)="logout()"
+        >Sign Out</a
+      >
+      <a class="btn btn-clean font-weight-bold cursor-pointer">Upgrade Plan</a>
+    </div>
+    <!--end::Footer-->
+  </div>
+  <!--end::Nav-->
+</ng-container>

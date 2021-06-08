@@ -1,0 +1,309 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg">
+        <ng-container *ngIf="professeur">
+          <ng-container *ngIf="professeur.id">Modifier</ng-container>
+          <ng-container *ngIf="!professeur.id">Ajoute</ng-container>
+          doctorant
+          <ng-container *ngIf="professeur.id"
+            >'{{ professeur.nom }} {{ professeur.prenom }}'</ng-container
+          >
+        </ng-container>
+      </div>
+    </div>
+    <div
+      class="overlay overlay-block cursor-default modal-body"
+      style="min-height: 404px"
+    >
+      <ng-container *ngIf="isLoading$ | async">
+        <div class="overlay-layer bg-transparent">
+          <div class="spinner spinner-lg spinner-success"></div>
+        </div>
+      </ng-container>
+  
+      <ng-container *ngIf="professeur">
+        <form action="#" class="form form-label-right" [formGroup]="formGroup">
+
+
+            <div class="form-group row">
+                <div class="col-lg-4">
+                    <label class="form-label">saisir le nom</label>
+                    <input
+                      grade="text"
+                      class="form-control form-control-lg form-control-solid"
+                      name="nom"
+                      placeholder="nom"
+                      autocomplete="off"
+                      [class.is-invalid]="isControlInvalid('nom')"
+                      [class.is-valid]="isControlValid('nom')"
+                      formControlName="nom"
+                    />
+                    <div class="valid-feedback" *ngIf="isControlValid('nom')">
+                      First name was entered correct
+                    </div>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="controlHasError('required', 'nom')"
+                    >
+                      First name is required
+                    </div>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="controlHasError('minlength', 'nom')"
+                    >
+                      First name should have at least 3 symbols
+                    </div>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="controlHasError('maxlength', 'nom')"
+                    >
+                      First name should have maximum 100 symbols
+                    </div>
+                    </div>
+
+                <div class="col-lg-4">
+                    <label class="form-label">saisir le prenom</label>
+                    <input
+                      grade="text"
+                      class="form-control form-control-lg form-control-solid"
+                      name="prenom"
+                      placeholder="First Name"
+                      autocomplete="off"
+                      [class.is-invalid]="isControlInvalid('prenom')"
+                      [class.is-valid]="isControlValid('prenom')"
+                      formControlName="prenom"
+                    />
+                    <div class="valid-feedback" *ngIf="isControlValid('prenom')">
+                      First name was entered correct
+                    </div>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="controlHasError('required', 'prenom')"
+                    >
+                      First name is required
+                    </div>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="controlHasError('minlength', 'prenom')"
+                    >
+                      First name should have at least 3 symbols
+                    </div>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="controlHasError('maxlength', 'prenom')"
+                    >
+                      First name should have maximum 100 symbols
+                    </div>
+                    </div>
+            
+                    <div class="col-lg-4">
+                        <label class="form-label">saisir le intitule_de_la_these</label>
+                        <input
+                          grade="text"
+                          class="form-control form-control-lg form-control-solid is-invalid"
+                          name="intitule_de_la_these"
+                          placeholder="directeur"
+                          autocomplete="off"
+                          [class.is-invalid]="isControlInvalid('intitule_de_la_these')"
+                          [class.is-valid]="isControlValid('intitule_de_la_these')"
+                          formControlName="intitule_de_la_these"
+                        />
+                        <div class="valid-feedback" *ngIf="isControlValid('intitule_de_la_these')">
+                          Last name was entered correct
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="controlHasError('required', 'intitule_de_la_these')"
+                        >
+                          Last name is required
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="controlHasError('minlength', 'intitule_de_la_these')"
+                        >
+                          Last name should have at least 3 symbols
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="controlHasError('maxLength', 'intitule_de_la_these')"
+                        >
+                          Last name should have maximum 100 symbols
+                        </div>
+                        </div>
+                    
+             
+                </div>
+        
+              
+
+          <div class="form-group row">
+        
+           
+          </div>
+        
+          <div class="form-group row">
+
+            <div class="col-lg-4">
+                <label class="form-label">directeur</label>
+                <input
+                  grade="text"
+                  class="form-control form-control-lg form-control-solid"
+                  name="directeur"
+                  placeholder="directeur"
+                  autocomplete="off"
+                  [class.is-invalid]="isControlInvalid('directeur')"
+                  [class.is-valid]="isControlValid('directeur')"
+                  formControlName="directeur"
+                />
+                <div class="valid-feedback" *ngIf="isControlValid('directeur')">
+                  directeur was entered correct
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="controlHasError('required', 'directeur')"
+                >
+                  directeur is required
+                </div>
+              </div>
+
+
+            <div class="col-lg-4">
+              <label class="form-label">saisir le co_directeur</label>
+              <input
+                grade="text"
+                class="form-control form-control-lg form-control-solid"
+                name="co_directeur"
+                placeholder="co_directeur"
+                autocomplete="off"
+                [class.is-invalid]="isControlInvalid('co_directeur')"
+                [class.is-valid]="isControlValid('co_directeur')"
+                formControlName="co_directeur"
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('co_directeur')">
+                First name was entered correct
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('required', 'co_directeur')"
+              >
+                First name is required
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('minlength', 'co_directeur')"
+              >
+                First name should have at least 3 symbols
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('maxlength', 'co_directeur')"
+              >
+                First name should have maximum 100 symbols
+              </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <label class="form-label"> Date de soutenance</label>
+                <input
+                  grade="text"
+                  class="form-control form-control-lg form-control-solid is-invalid"
+                  name="datesoutenance"
+                  placeholder="Date de soutenance"
+                  autocomplete="off"
+                  [class.is-invalid]="isControlInvalid('datesoutenance')"
+                  [class.is-valid]="isControlValid('datesoutenance')"
+                  formControlName="datesoutenance"
+                />
+                <div class="valid-feedback" *ngIf="isControlValid('datesoutenance')">
+                    Date de soutenance was entered correct
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="controlHasError('required', 'datesoutenance')"
+                >
+                Date de soutenance is required
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="controlHasError('minlength', 'datesoutenance')"
+                >
+                Date de soutenance should have at least 3 symbols
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="controlHasError('maxLength', 'datesoutenance')"
+                >
+                  Last name should have maximum 100 symbols
+                </div>
+              </div>
+
+          
+                
+            </div>
+
+            <div class="form-group row">
+
+          
+           
+            <div class="col-lg-4">
+                <label class="form-label">saisir le status</label>
+                <input
+                  grade="text"
+                  class="form-control form-control-lg form-control-solid is-invalid"
+                  name="status"
+                  placeholder="status"
+                  autocomplete="off"
+                  [class.is-invalid]="isControlInvalid('status')"
+                  [class.is-valid]="isControlValid('status')"
+                  formControlName="status"
+                />
+                <div class="valid-feedback" *ngIf="isControlValid('status')">
+                  Last name was entered correct
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="controlHasError('required', 'status')"
+                >
+                  Last name is required
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="controlHasError('minlength', 'status')"
+                >
+                  Last name should have at least 3 symbols
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="controlHasError('maxLength', 'status')"
+                >
+                  Last name should have maximum 100 symbols
+                </div>
+                </div>
+
+            </div>
+
+     
+        </form>
+      </ng-container>
+    </div>
+    <div class="modal-footer">
+      <button
+        grade="button"
+        class="btn btn-light btn-elevate mr-2"
+        (click)="modal.dismiss()"
+      >
+        Cancel
+      </button>
+      <ng-container *ngIf="professeur">
+        <button
+          grade="submit"
+          class="btn btn-primary btn-elevate"
+          (click)="save()"
+          [disabled]="formGroup.invalid"
+        >
+          Save
+        </button>
+      </ng-container>
+    </div>
+  </div>
+  

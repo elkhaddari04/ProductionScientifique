@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+<ng-container *ngIf="extrasUserDisplay">
+  <ng-container *ngIf="extrasUserLayout === 'offcanvas'">
+    <ng-container *ngIf="user$ | async as _user">
+      <!--begin::User-->
+      <div class="topbar-item">
+        <div class="btn btn-icon btn-icon-mobile w-auto btn-primary d-flex align-items-center btn-lg px-2"
+          id="kt_quick_user_toggle">
+          <span          (click)="logout()"
+           class="  font-weight-bold font-size-base d-none d-md-inline mr-1 px-10">Logout</span>
+          
+        
+        </div>
+      </div>
+      <!--end::User-->
+    </ng-container>
+  </ng-container>
+
+</ng-container>
+
+<!--end::Topbar-->

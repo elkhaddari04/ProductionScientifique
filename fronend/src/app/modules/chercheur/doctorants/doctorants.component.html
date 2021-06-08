@@ -1,0 +1,89 @@
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+      <div class="card-title">
+        <h3 class="card-label">Doctorants list</h3>
+      </div>
+      <div class="card-toolbar">
+        <button type="button" class="btn btn-primary" (click)="create()">New Doctorants</button>
+      </div>
+    </div>
+    <div class="card-body">
+      
+  
+      <!-- begin:Table -->
+      <div class="table-responsive angular-bootstrap-table">
+        <table class="table table-head-custom table-vertical-center overflow-hidden">
+          <thead>
+       
+            <th>
+              ID
+         
+            </th>
+            <th>
+                nom
+            >
+            </th>
+            <th>
+              Prenom
+            
+            </th>
+            <th>
+                intitule de la these
+              
+              </th>
+              <th>
+                directeur
+              
+              </th>
+            <th>
+                co_directeur
+        
+            </th>
+            <th>
+                Date de soutenance
+       
+            </th>
+            <th>
+                status
+            
+            </th>
+            
+            <th>Actions</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of doctorantService.items$ | async">
+          
+              <td>{{ customer.id }}</td>
+              <td>{{ customer.nom }}</td>
+              <td>{{ customer.prenom }}</td>
+              <td>{{ customer.intitule_de_la_these }}</td>
+              <td>{{ customer.directeur  }}</td>
+              <td>{{ customer.co_directeur }}</td>
+              <td>{{ customer.datesoutenance }}</td>
+              <td>{{ customer.status }}</td>
+
+             
+              <td>
+  
+                <a title="Edit customer" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                  (click)="edit(customer.id)">
+                  <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                    class="svg-icon svg-icon-md svg-icon-primary">
+                  </span>
+                </a>
+  
+                <a title="Delete customer" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                  (click)="delete(customer.id)">
+                  <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                    class="svg-icon svg-icon-md svg-icon-danger">
+                  </span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end: Table -->
+   
+    </div>
+  </div>

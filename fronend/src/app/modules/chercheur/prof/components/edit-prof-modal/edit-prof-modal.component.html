@@ -1,0 +1,173 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg">
+        <ng-container *ngIf="professeur">
+          <ng-container *ngIf="professeur.id">Modifier</ng-container>
+          <ng-container *ngIf="!professeur.id">Ajoute</ng-container>
+          professeur
+          <ng-container *ngIf="professeur.id"
+            >'{{ professeur.nom }} {{ professeur.prenom }}'</ng-container
+          >
+        </ng-container>
+      </div>
+    </div>
+    <div
+      class="overlay overlay-block cursor-default modal-body"
+      style="min-height: 404px"
+    >
+      <ng-container *ngIf="isLoading$ | async">
+        <div class="overlay-layer bg-transparent">
+          <div class="spinner spinner-lg spinner-success"></div>
+        </div>
+      </ng-container>
+  
+      <ng-container *ngIf="professeur">
+        <form action="#" class="form form-label-right" [formGroup]="formGroup">
+          <div class="form-group row">
+            <div class="col-lg-4">
+              <label class="form-label">saisir le nom</label>
+              <input
+                grade="text"
+                class="form-control form-control-lg form-control-solid"
+                name="nom"
+                placeholder="First Name"
+                autocomplete="off"
+                [class.is-invalid]="isControlInvalid('nom')"
+                [class.is-valid]="isControlValid('nom')"
+                formControlName="nom"
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('nom')">
+                First name was entered correct
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('required', 'nom')"
+              >
+                First name is required
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('minlength', 'nom')"
+              >
+                First name should have at least 3 symbols
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('maxlength', 'nom')"
+              >
+                First name should have maximum 100 symbols
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <label class="form-label">saisir le prenom</label>
+              <input
+                grade="text"
+                class="form-control form-control-lg form-control-solid is-invalid"
+                name="prenom"
+                placeholder="Last Name"
+                autocomplete="off"
+                [class.is-invalid]="isControlInvalid('prenom')"
+                [class.is-valid]="isControlValid('prenom')"
+                formControlName="prenom"
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('prenom')">
+                Last name was entered correct
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('required', 'prenom')"
+              >
+                Last name is required
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('minlength', 'prenom')"
+              >
+                Last name should have at least 3 symbols
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('maxLength', 'prenom')"
+              >
+                Last name should have maximum 100 symbols
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <label class="form-label">specialite</label>
+              <input
+                grade="text"
+                class="form-control form-control-lg form-control-solid"
+                name="specialite"
+                placeholder="specialite"
+                autocomplete="off"
+                [class.is-invalid]="isControlInvalid('specialite')"
+                [class.is-valid]="isControlValid('specialite')"
+                formControlName="specialite"
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('specialite')">
+                specialite was entered correct
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="controlHasError('required', 'specialite')"
+              >
+                specialite is required
+              </div>
+            </div>
+          </div>
+        
+          <div class="form-group row">
+            <div class="col-lg-4">
+              <label>Select etablissement</label>
+              <select
+                class="form-control form-control-lg form-control-solid"
+                name="etablissement"
+                [class.is-invalid]="isControlInvalid('etablissement')"
+                formControlName="etablissement"
+              >
+                <option selected value="Ensa">Ensa</option>
+                <option value="Est">Est</option>
+                <option value="poly">poly</option>
+                <option value="FS">FS</option>
+              </select>
+              <div class="feedback">Please select <b>etablissement</b></div>
+            </div>
+            <div class="col-lg-4">
+              <label>Select grade</label>
+              <select
+                class="form-control form-control-lg form-control-solid"
+                name="grade"
+                formControlName="grade"
+              >
+                <option selected value="professeur assistant ">professeur assistant </option>
+                <option value="professeur Habilité"> professeur Habilité</option>
+                <option value="professeur de l’Enseignement Supérieur"> professeur de l’Enseignement Supérieur</option>
+  
+              </select>
+              <div class="feedback">Please select <b>grade</b></div>
+            </div>
+          </div>
+        </form>
+      </ng-container>
+    </div>
+    <div class="modal-footer">
+      <button
+        grade="button"
+        class="btn btn-light btn-elevate mr-2"
+        (click)="modal.dismiss()"
+      >
+        Cancel
+      </button>
+      <ng-container *ngIf="professeur">
+        <button
+          grade="submit"
+          class="btn btn-primary btn-elevate"
+          (click)="save()"
+          [disabled]="formGroup.invalid"
+        >
+          Save
+        </button>
+      </ng-container>
+    </div>
+  </div>
+  
