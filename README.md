@@ -32,7 +32,7 @@ A simple platforme for   management of production scientific in university of ch
  ---  
   
  ##   🚀 Delete  Profsseur : 
-  <img   align="center" src="https://i.imgur.com/GpqqcNZ.png" alt="demo"/>
+  <img   align="center" src="https://i.imgur.com/z5q2mnu.png" alt="demo"/>
   
  ---  
   
